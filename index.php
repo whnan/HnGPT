@@ -1,5 +1,5 @@
 ﻿<?php
-//$type = "Hn";
+//$type = "Hn";       这段是原来的，登录锁，不完整有bug。
 //  if (substr($_SERVER["REMOTE_ADDR"],0,9)!="127.0.0.1"){
 //    if (strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
 //      echo "<div style='height:100%;width:100%;text-align:center;margin-top:30%;'><h1>请点击右上角，选择”在浏览器打开“</h1></div>";
@@ -24,31 +24,31 @@
 
 
 
-$type = "Hn";
-if (substr($_SERVER["REMOTE_ADDR"],0,9)!="127.0.0.1"){
-  if (strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
-    echo "<div style='height:100%;width:100%;text-align:center;margin-top:30%;'><h1>请点击右上角，选择 ”在浏览器打开“</h1></div>";
-    exit;
-  }
-  if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="Please input username and password."');
-    header('HTTP/1.0 401 Unauthorized');
-    echo 'Call me honey.';
-    exit;
-  } else {
-    if (($_SERVER['PHP_AUTH_USER']=="xnh")&&($_SERVER['PHP_AUTH_PW']=="hn")){
-      $type = "Hn";
-    } else {
-      header('WWW-Authenticate: Basic realm="Please input username and password."');
-      header('HTTP/1.0 401 Unauthorized');
-      echo 'Wrong password, please try again.';
-      exit;
-    }
-  }
-} else {
-  $type = "内网";
-}
-?>
+// $type = "Hn";                从这行开始把注释去掉，第39行可设置网页的登录名和密码
+// if (substr($_SERVER["REMOTE_ADDR"],0,9)!="127.0.0.1"){
+//   if (strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+//     echo "<div style='height:100%;width:100%;text-align:center;margin-top:30%;'><h1>请点击右上角，选择 ”在浏览器打开“</h1></div>";
+//     exit;
+//   }
+//   if (!isset($_SERVER['PHP_AUTH_USER'])) {
+//     header('WWW-Authenticate: Basic realm="Please input username and password."');
+//     header('HTTP/1.0 401 Unauthorized');
+//     echo 'Call me honey.';
+//     exit;
+//   } else {
+//     if (($_SERVER['PHP_AUTH_USER']=="设置你的登录账号")&&($_SERVER['PHP_AUTH_PW']=="设置登录密码")){
+//       $type = "Hn";
+//     } else {
+//       header('WWW-Authenticate: Basic realm="Please input username and password."');
+//       header('HTTP/1.0 401 Unauthorized');
+//       echo 'Wrong password, please try again.';
+//       exit;
+//     }
+//   }
+// } else {
+//   $type = "内网";
+// }
+ ?>
 
 
 <html lang="zh-CN">
@@ -72,7 +72,7 @@ if (substr($_SERVER["REMOTE_ADDR"],0,9)!="127.0.0.1"){
                 </div>
 
                 <div class="header-logo">
-                    <h2 class="logo"><a class="links" href="https://www.xnhletxjy.fun/"><span class="logo-title">Hn的另一个GPT</span></a></h2>
+                    <h2 class="logo"><a class="links" href="https://github.com/whnan/"><span class="logo-title">Hn的GitHub</span></a></h2>
                 </div>
 
             </div>
